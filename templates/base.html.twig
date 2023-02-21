@@ -11,8 +11,6 @@
     <link href="{{ asset('assets/img/logo.png') }}" rel="icon">
     <link href="{{ asset('assets/img/logo.png') }}" rel="apple-touch-icon">
 
-
-
     <!-- Google Fonts -->
     <link href="{{ asset('https://fonts.gstatic.com') }}" rel="preconnect">
     <link href="{{ asset('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet') }}">
@@ -240,15 +238,8 @@
         <br>
         <br>
         <br>
-        <br> <br> <br>
-
-
-{#        <li class="nav-item">#}
-{#            <a class="nav-link collapsed" href="pages-contact.html">#}
-{#                <i class="bi bi-envelope"></i>#}
-{#                <span>Contact</span>#}
-{#            </a>#}
-{#        </li><!-- End Contact Page Nav -->#}
+        <br>
+        <br>
 
         <li class="nav-item">
             <a class="nav-link collapsed" href="pages-login.html">
@@ -259,26 +250,22 @@
 
     </ul>
 
-</aside><!-- End Sidebar-->
+</aside>
 {% endblock %}
 
-    <main style="
-            position: fixed;
-            left: 350px;
-            top: 100px;
-            width: 70%;
-            text-align: center;">
-        {% block body %}
-            Table goes here
-        {% endblock %}
-    </main>
+<main id="main" class="main" style="
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100%;">
+    {% block body %}
+        <div>Empty for now Humzah</div>
+        <div>TEST ALIGNEMENT</div>
+    {% endblock %}
+</main><!-- End #main -->
 <!-- ======= Footer ======= -->
 {% block footer %}
-<footer id="footer" class="footer" style="position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 70%;
-  text-align: center;;">
+<footer id="footer" class="footer">
     <div class="copyright">
         &copy; Copyright <strong><span>DevArmy</span></strong>. All Rights Reserved
     </div>
