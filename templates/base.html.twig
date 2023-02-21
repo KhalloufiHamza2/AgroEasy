@@ -180,10 +180,10 @@
         </li><!-- End Tables Nav -->
 
         <li class="nav-item">
-            <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-coin"></i><span>Gestion financière</span><i class="bi bi-chevron-down ms-auto"></i>
+            <a class="nav-link collapsed" data-bs-target="#produit-nav" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-calendar4-range"></i><span>Gestion financière</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
-            <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+            <ul id="produit-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
                     <a href="{{ asset('facture') }}">
                         <i class="bi bi-circle"></i><span>Factures</span>
@@ -264,11 +264,11 @@
 
     <main style="
             position: fixed;
-            left: 400px;
-            bottom: 400px;
+            left: 350px;
+            top: 100px;
             width: 70%;
             text-align: center;">
-        {% block contenu %}
+        {% block body %}
             Table goes here
         {% endblock %}
     </main>
