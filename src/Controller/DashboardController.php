@@ -2,11 +2,11 @@
 
 namespace App\Controller;
 
-use App\Repository\CategorieRepository;
-use App\Repository\ProduitRepository;
+use App\Entity\Facture;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Repository\FactureRepository;
 
 class DashboardController extends AbstractController
 {
@@ -31,7 +31,13 @@ class DashboardController extends AbstractController
             'controller_name' => 'DashboardController',
         ]);
     }
-
+    #[Route('/categorie', name: 'app_dashboardCategorie')]
+    public function categorie(): Response
+    {
+        return $this->render('dashboard/page-categorie.html.twig', [
+            'controller_name' => 'DashboardController',
+        ]);
+    }
     #[Route('/comptabilite', name: 'app_dashboardComptabilite')]
     public function comptabilite(): Response
     {
@@ -61,11 +67,13 @@ class DashboardController extends AbstractController
         ]);
     }
     #[Route('/facture', name: 'app_dashboardFacture')]
-    public function facture(): Response
+    public function facture(FactureRepository $factureRepository): Response
     {
-        return $this->render('dashboard/page-facture.html.twig', [
-            'controller_name' => 'DashboardController',
+        $facture= $this->getDoctrine()->getRepository(Facture::class)->findAll();
+        return $this->render('facture/index.html.twig', [
+            'factures' => $facture
         ]);
+       
     }
     #[Route('/participant', name: 'app_dashboardParticipant')]
     public function participant(): Response
@@ -74,18 +82,11 @@ class DashboardController extends AbstractController
             'controller_name' => 'DashboardController',
         ]);
     }
-    #[Route('/produit', name: 'app_dasshboardProduit')]
-    public function produit(ProduitRepository $produitRepository): Response
+    #[Route('/produit', name: 'app_dashboardProduit')]
+    public function produit(): Response
     {
-        return $this->render('produit/index.html.twig', [
-            'produits' => $produitRepository->findAll(),
-        ]);
-    }
-    #[Route('/categorie', name: 'app_dashboardCqtegorie')]
-    public function categorie(CategorieRepository $categorieRepository): Response
-    {
-        return $this->render('categorie/index.html.twig', [
-            'categories' => $categorieRepository->findAll(),
+        return $this->render('dashboard/page-produit.html.twig', [
+            'controller_name' => 'DashboardController',
         ]);
     }
     #[Route('/terrain', name: 'app_dashboardTerrain')]
