@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Employe{% endblock %}
+
+{% block body %}
+    <main style="
+           display: flex;align-items: center;
+            position: fixed;
+            left: 200px;
+            bottom: 200px;
+            width: 90%;
+            justify-content: center;
+           textarea {
+  font-family: inherit;
+  font-size: 90%;
+}
+            flex-wrap: wrap;
+            height: 250px;
+            text-align: center;">
+    <div class="row">
+        
+
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Ajouter employe </h5>
+
+                    <!-- General Form Elements -->
+                    
+                   {{ form_start(form,{attr:{novalidate:'novalidate'}}) }}
+                  
+<p>
+                    <label for="inputText" class="col-sm-4 col-form-label">nom</label>
+                        <div class="col-sm-10">
+                            {{ form_widget(form.nom,{'attr':{'class':'form-control'}}) }}
+
+                    </div>
+                    {{ form_errors(form.nom,{'attr':{'class':'text-danger'}}) }}
+
+                  </p> 
+ <p>
+                   {{ form_start(form,{attr:{novalidate:'novalidate'}}) }}
+                        <label for="inputText" class="col-sm-4 col-form-label">prenom</label>
+                        <div class="col-sm-10">
+                            {{ form_widget(form.prenom,{'attr':{'class':'form-control'}}) }}
+
+                        </div>
+                    {{ form_errors(form.prenom,{'attr':{'class':'text-danger'}}) }}
+
+</p>
+<p>
+                   {{ form_start(form,{attr:{novalidate:'novalidate'}}) }}
+                        <label for="inputText" class="col-sm-4 col-form-label">cin</label>
+                        <div class="col-sm-10">
+                            {{ form_widget(form.cin,{'attr':{'class':'form-control'}}) }}
+
+                        </div>
+                    {{ form_errors(form.cin,{'attr':{'class':'text-danger'}}) }}
+
+</p>
+
+                    {{ form_end(form) }}
+
+               
+            </div>
+
+        </div>
+
+    </div>
+
+
+{% endblock %}

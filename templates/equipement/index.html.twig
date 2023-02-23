@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des equipements {% endblock %}
+
+{% block body %}
+    <main style="
+            position: fixed;
+           
+            left: 400px;
+            bottom: 250px;
+            width: 60%;
+            height: 300px;
+            text-align: center;">
+    <h1>Equipements</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Type</th>
+                <th>Marque</th>
+                <th>Disponnible</th>
+                <th>Etat</th>
+                <th>Matricule</th>
+                <th>employé</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for equipement in equipements %}
+            <tr>
+                <td>{{ equipement.id }}</td>
+                <td>{{ equipement.type }}</td>
+                <td>{{ equipement.marque }}</td>
+                <td>{{ equipement.disponnible ? 'Yes' : 'No' }}</td>
+                <td>{{ equipement.etat }}</td>
+                <td>{{ equipement.matricule }}</td>
+                <td>{{ equipement.employe }}</td>
+                <td>
+                    <a class="btn btn-outline-primary" href="{{ path('app_equipement_show', {'id': equipement.id}) }}">show</a>
+                    <a class="btn btn-outline-primary" href="{{ path('app_equipement_edit', {'id': equipement.id}) }}">edit</a>
+                    <a class="btn btn-outline-primary" href="{{ path('app_equipement_delete', {'id': equipement.id}) }}">delete</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-outline-success" href="{{ path('app_equipement_new') }}">ajouter equipement</a>
+{% endblock %}
