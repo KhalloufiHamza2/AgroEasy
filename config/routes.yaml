@@ -1,3 +1,10 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
+searchCulture:
+    path: /culture/search
+    controller: App\Controller\CultureController::searchCulture
+    methods: [POST]
+# config/routes/calendar.yaml
+calendar:
+    resource: "@CalendarBundle/Resources/config/routing.yaml"

@@ -2,10 +2,10 @@
 
 namespace App\Entity;
 
-use App\Repository\VehiculeRepository;
+use App\Repository\EquipementRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: VehiculeRepository::class)]
+#[ORM\Entity(repositoryClass: EquipementRepository::class)]
 class Equipement
 {
     #[ORM\Id]
@@ -17,7 +17,7 @@ class Equipement
     private ?string $type = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $marque = null;
+    private ?string $modele = null;
 
     #[ORM\Column]
     private ?bool $disponnible = null;

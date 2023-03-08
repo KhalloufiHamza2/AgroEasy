@@ -3,8 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ProduitRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ProduitRepository::class)]
 class Produit
@@ -14,11 +14,9 @@ class Produit
     #[ORM\Column]
     private ?int $id = null;
 
-    #[Assert\NotNull(message:"Nom doit etre remplit"),Type('string')]
     #[ORM\Column(length: 255)]
     private ?string $nom = null;
 
-    #[Assert\NotNull(message:"Prix doit etre remplit"),Type('string')]
     #[ORM\Column]
     private ?float $prix = null;
 
@@ -45,6 +43,7 @@ class Produit
     public function setNom(string $nom): self
     {
         $this->nom = $nom;
+
         return $this;
     }
 
@@ -56,6 +55,7 @@ class Produit
     public function setPrix(float $prix): self
     {
         $this->prix = $prix;
+
         return $this;
     }
 
